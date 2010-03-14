@@ -4,4 +4,5 @@ Modulo is an iPhone web app that addresses a major missing feature in the iPhone
 
 ##To Do
 
-- Make the information panel and make the i button toggle the information.
+- Make the information panel and make the i button toggle the information using jQuery.
+- Make the app remember the last answer so that when the user quits the app and opens it up again, the same answer will be there.
