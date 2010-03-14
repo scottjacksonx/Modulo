@@ -25,9 +25,16 @@
 			
 			if (isNaN(remainder)) {
 				alert("One or more of the values is not a number.");
+				document.getElementById("answer").innerHTML = "&nbsp;";
 			} else {
 				document.getElementById("answer").innerHTML = remainder.toString();
 			}
+		}
+		
+		/*The stuff in this function is just a placeholder. */
+		function showInfo() {
+			
+			alert("Modulo is an iPhone web app that fills in a missing feature in the iPhone's built-in calculator - the modulo operation.");
 		}
 		
 	</script>
@@ -98,14 +105,15 @@
 		}
 		
 		div.answer {
-			background-color: #DEB887;
+			background-color: #BC9665;
 			position: relative;
 			top: 60px;
 			font-size: 24pt;
-			width: 220px;
+			width: 222px;
 			padding: 30px;
 			text-align: center;
 			margin: 0 auto;
+			color: #FFF;
 		}
 		
 		img {
@@ -115,6 +123,14 @@
 		#btn {
 			position: relative;
 			top: 20px;
+		}
+		
+		div.iButton {
+			background-image: url(black_rollie.png);
+			position: absolute;
+			left: 273px;
+			height: 13px;
+			top: 330px;
 		}
 		
 
@@ -132,10 +148,14 @@
 			<span class="equals">%</span>
 			<input id="divisor" />
 
-			<img id="btn" src="btn2.png" onClick="calculate()">
+			<img id="btn" src="btn2.png" onClick="calculate()" />
 		
 			<div class="answer" id="answer">
 				&nbsp;
+			</div>
+			
+			<div class="iButton" onClick="showInfo()">
+				<img src="white_i.png" style="top: -1px; position: relative;" />
 			</div>
 		</div>
 	</div>
