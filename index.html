@@ -33,9 +33,8 @@
 		}
 		
 		/*The stuff in this function is just a placeholder. */
-		function showInfo() {
-			
-			alert("Modulo is an iPhone web app that fills in a missing feature in the iPhone's built-in calculator - the modulo operation.");
+		function flip(event)
+		{
 		}
 		
 		function detectBrowser() {
@@ -57,11 +56,16 @@
 			var orientation = window.orientation;
 			
 			if (orientation == 0) {
-				
+				document.getElementById("wrapper").style.display = "block";
+				document.getElementById("rotatePrompt").style.display = "none";
+				document.getElementById("rotateImg").style.webkitTransform = "rotate(0deg)";
 			} else if (orientation == 90) {
-				
+				document.getElementById("wrapper").style.display = "none";
+				document.getElementById("rotatePrompt").style.display = "block";
 			} else {
-				
+				document.getElementById("wrapper").style.display = "none";
+				document.getElementById("rotatePrompt").style.display = "block";
+				document.getElementById("rotateImg").style.webkitTransform = "rotateY(180deg)";
 			}
 		}
 		
@@ -75,7 +79,7 @@
 			padding: 10px;
 			padding-top: 20px;	
 			font-family: Helvetica;
-			
+			text-align: center;
 		}
 		
 		div.header {
@@ -191,6 +195,30 @@
 			left: 150px;
 		}
 		
+		div.back {
+			display: none;
+			position: absolute;
+			top: 20px;
+			left: 10px;
+			width: 300px;
+			height: 408px;
+			-webkit-border-radius: 13px;
+			background-color: #FFF;
+		}
+		
+		#rotatePrompt {
+			display: none;
+			padding: 30px;
+			background-color: #F1EDC2;
+			position: absolute;
+			width: 200px;
+			top: 60px;
+			left: 110px;
+			margin: 0 auto;
+			text-align: center;
+			-webkit-user-select: none;
+		}
+		
 
 	</style>
 </head>
@@ -212,11 +240,25 @@
 				&nbsp;
 			</div>
 			
-			<div class="iButton" onClick="showInfo()">
+			<div class="iButton" onClick="flip(event)">
 				<img src="white_i.png" style="top: -1px; position: relative;" />
 			</div>
 		</div>
 	</div>
+	
+	<div id="back">
+		<div class="back">
+			Modulo is a Scott Jackson creation.
+		</div>
+	</div>
+	
+	<div id="rotatePrompt">
+		<div>
+			Modulo is designed to only be used in portrait mode. <b>Please rotate your device into portrait mode.</b>
+		</div>
+		<img src="rotate.png" id="rotateImg" alt="" />
+	</div>
+	
 	<div id="inSafari">
 		<div class="addToHomeScreenDialog">
 			To install Modulo, tap the <b>+</b> button and then <b>"Add to Home Screen"</b>
