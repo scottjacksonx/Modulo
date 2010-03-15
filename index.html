@@ -39,12 +39,29 @@
 		}
 		
 		function detectBrowser() {
-			if (!window.navigator.standalone) {
-				document.getElementById("wrapper").style.display = "none";
-				document.getElementById("inSafari").style.display = "block";
+			
+			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+				if (!window.navigator.standalone) {
+					document.getElementById("wrapper").style.display = "none";
+					document.getElementById("inSafari").style.display = "block";
+				} else {
+					document.getElementById("wrapper").style.display = "block";
+					document.getElementById("inSafari").style.display = "none";
+				}
 			} else {
-				document.getElementById("wrapper").style.display = "block";
-				document.getElementById("inSafari").style.display = "none";
+				window.location = "http://scottjackson.org/modulo/d";
+			}
+		}
+		
+		function updateOrientation() {
+			var orientation = window.orientation;
+			
+			if (orientation == 0) {
+				
+			} else if (orientation == 90) {
+				
+			} else {
+				
 			}
 		}
 		
@@ -178,16 +195,16 @@
 	</style>
 </head>
 
-<body onload="detectBrowser();">
+<body onload="detectBrowser();" onorientationchange="updateOrientation();">
 	<div id="wrapper">
 		<div class="header">
 			<h1>Modulo</h1>
 		</div>
 	
 		<div class="content">
-			<input id="dividend" />
+			<input id="dividend" pattern="[0-9]*" />
 			<span class="equals">%</span>
-			<input id="divisor" />
+			<input id="divisor" pattern="[0-9]*" />
 
 			<img id="btn" src="btn2.png" onClick="calculate()" />
 		
@@ -210,5 +227,4 @@
 	</div>
 	
 </body>
-
 </html>
