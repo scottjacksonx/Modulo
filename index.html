@@ -9,12 +9,10 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-icon" href="icon.png">
 	<link rel="apple-touch-startup-image" href="startup.png">
+	<script type="text/javascript" src="SQLStore.js"></script>
 	
 	<title>Modulo</title>
 	<script type="text/javascript">
-    	jQuery.fn.slideFadeToggle = function(speed, easing, callback) {
-          return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);  
-        };
 
 		function calculate() {
 			var dividend = parseFloat(document.getElementById("dividend").value);
@@ -27,6 +25,8 @@
 				document.getElementById("answer").innerHTML = "&nbsp;";
 			} else {
 				document.getElementById("answer").innerHTML = remainder.toString();
+				nukeTables(systemDB);
+				addRecords(systemDB);
 			}
 		}
 		
@@ -36,7 +36,6 @@
 		}
 		
 		function detectBrowser() {
-			
 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
 				if (!window.navigator.standalone) {
 					document.getElementById("wrapper").style.display = "none";
@@ -236,7 +235,7 @@
 	</style>
 </head>
 
-<body onload="detectBrowser();" onorientationchange="updateOrientation();">
+<body onload="detectBrowser(); initDB();" onorientationchange="updateOrientation();">
 	<div id="wrapper">
 		<div class="header">
 			<h1>Modulo</h1>
